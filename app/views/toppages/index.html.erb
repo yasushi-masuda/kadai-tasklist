@@ -1,7 +1,11 @@
-<div class= 'center jumbotron' style='background-color:'>
-  <div class='text-center'>
-    <h1>Tasklistを始めよう！</h1>
-    <%=link_to 'アカウント作成', signup_path, class: 'btn btn-info' %>
-    <a class='btn btn-outline-info' href='#' role='button'>ログイン</a>
-    </div>
-</div>
+<% if logged_in? %>
+  <p>ログイン完了ユーザ:<%= current_user.name %></p>
+<% else %>
+  <div class= 'center jumbotron' style='background-color:'>
+    <div class='text-center'>
+      <h1>Tasklistを始めよう！</h1>
+      <%=link_to 'アカウント作成', signup_path, class: 'btn btn-info' %>
+      <%=link_to 'ログイン',login_path, class: 'btn btn-outline-info' %>
+      </div>
+  </div>
+<% end %>
